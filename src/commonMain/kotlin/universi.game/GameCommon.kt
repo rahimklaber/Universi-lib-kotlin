@@ -30,6 +30,13 @@ class Game(val board: Board) {
 
     }
 
+    fun oppositePlayer(player: Player) : Player{
+        return when(player.color){
+            Color.BLACK -> whitePlayer
+            else -> blackPlayer
+        }
+    }
+
     fun blackMove(cell: Cell): Int {
         return move(cell, blackPlayer)
     }
