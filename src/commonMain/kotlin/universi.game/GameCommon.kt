@@ -39,6 +39,15 @@ class Game(val board: Board) {
 
     }
 
+    fun anyMovePossible(player: Player): Boolean {
+        return board.anyMovePossible(player.color)
+    }
+
+    fun isMovePossible(cell: Cell, player: Player): Boolean {
+        return board.isMovePossible(cell, player.color)
+    }
+
+
     fun switchTurns() {
         blackPlayer.turn = !blackPlayer.turn
         whitePlayer.turn = !whitePlayer.turn
@@ -47,7 +56,8 @@ class Game(val board: Board) {
     fun start() {
         started = !started
     }
-    fun stop(){
+
+    fun stop() {
         started = !started
     }
 
