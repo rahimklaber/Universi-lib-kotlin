@@ -30,8 +30,8 @@ class Game(val board: Board) {
 
     }
 
-    fun oppositePlayer(player: Player) : Player{
-        return when(player.color){
+    fun oppositePlayer(player: Player): Player {
+        return when (player.color) {
             Color.BLACK -> whitePlayer
             else -> blackPlayer
         }
@@ -66,6 +66,25 @@ class Game(val board: Board) {
 
     fun stop() {
         started = !started
+    }
+
+    fun checkForGameEnd(): State {
+        val count = board.count {
+            it.isBlack() || it.isWhite()
+        }
+        if(count == 64)
+            return State.FULLBOARD
+        if(!board.anyMovePossible())
+            return State.NOMOVE
+        return State.ONGOING
+    }
+    enum class State{
+        ONGOING(),
+        NOMOVE(),
+        FULLBOARD()
+
+
+
     }
 
     companion object {
@@ -354,7 +373,11 @@ enum class Color(val colornr: Int) {
     }
 }
 
-class Player(val name: String, val color: Color, var turn: Boolean)
+//should probably make this abract?
+open class Player(val name: String, val color: Color, var turn: Boolean) {
+    open fun send(obj: Any) {
+    }
+}
 
 
 
