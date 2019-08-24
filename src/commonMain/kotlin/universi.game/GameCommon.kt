@@ -127,7 +127,7 @@ class Cell(val x: Int, val y: Int, var color: Color = Color.GREEN) {
 
 
 class Board : Iterable<Cell> {
-    private val internalBoard: Array<Array<Cell>> = arrayOf(
+    val internalBoard: Array<Array<Cell>> = arrayOf(
         arrayOf(Cell(1, 1), Cell(2, 1), Cell(3, 1), Cell(4, 1), Cell(5, 1), Cell(6, 1), Cell(7, 1), Cell(8, 1)),
         arrayOf(Cell(1, 2), Cell(2, 2), Cell(3, 2), Cell(4, 2), Cell(5, 2), Cell(6, 2), Cell(7, 2), Cell(8, 2)),
         arrayOf(Cell(1, 3), Cell(2, 3), Cell(3, 3), Cell(4, 3), Cell(5, 3), Cell(6, 3), Cell(7, 3), Cell(8, 3)),
